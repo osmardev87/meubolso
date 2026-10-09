@@ -4,7 +4,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import tech.gomesdev87.meubolso.user.User;
-import java.util.Locale;
+
 
 public record RegisterRequest(
 

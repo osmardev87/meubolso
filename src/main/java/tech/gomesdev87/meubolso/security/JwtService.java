@@ -44,7 +44,8 @@ public class JwtService {
                 .compact();
     }
 
-    public String extractUsername(String token) {
+    @SuppressWarnings("null")
+public String extractUsername(String token) {
         return extractClaim(
                 token,
                 Claims::getSubject
@@ -74,7 +75,8 @@ public class JwtService {
         return extractExpiration(token).before(new Date());
     }
 
-    private Date extractExpiration(String token) {
+    @SuppressWarnings("null")
+private Date extractExpiration(String token) {
         return extractClaim(
                 token,
                 Claims::getExpiration

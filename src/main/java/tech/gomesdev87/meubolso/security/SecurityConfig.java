@@ -44,7 +44,8 @@ public class SecurityConfig {
         return configuration.getAuthenticationManager();
     }
 
-    @Bean
+    @SuppressWarnings("null")
+@Bean
     public SecurityFilterChain securityFilterChain(
             HttpSecurity http
     ) throws Exception {

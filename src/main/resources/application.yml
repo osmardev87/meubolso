@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: meubolso
+
+  datasource:
+    url: jdbc:postgresql://pg.gomesdev87.tech:5432/openfinace
+    username: gomes
+    password: gomes123
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+jwt:
+  secret: MinhaChaveSecretaSuperSeguraCom32CaracteresOuMais1234567890
+  expiration: 900000
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+  endpoint:
+    health:
+      show-details: always

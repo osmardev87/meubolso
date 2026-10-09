@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "spring.flyway.enabled",
+      "type": "java.lang.String",
+      "description": "Description for spring.flyway.enabled."
+    },
+    {
+      "name": "spring.flyway.locations",
+      "type": "java.lang.String",
+      "description": "Description for spring.flyway.locations."
+    }
+  ] }

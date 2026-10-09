@@ -1,0 +1,422 @@
+
+:root {
+    color-scheme: dark;
+    --bg: #08111f;
+    --surface: #111c2d;
+    --surface-hover: #17263a;
+    --border: #24344b;
+    --text: #f1f5f9;
+    --muted: #94a3b8;
+    --primary: #10b981;
+    --primary-hover: #059669;
+    --danger: #f87171;
+    --radius: 18px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 40px 20px;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+    color: var(--text);
+    background:
+            radial-gradient(ellipse at top left, #12352f 0%, transparent 35%),
+            var(--bg);
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    min-height: 46px;
+    border: 0;
+    border-radius: 12px;
+    padding: 12px 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .2s, transform .2s, opacity .2s;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+}
+
+button:disabled {
+    opacity: .6;
+    cursor: wait;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 440px;
+    margin: 6vh auto;
+    padding: 38px;
+    background: rgba(17, 28, 45, .94);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, .3);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #34d399, #059669);
+    color: #052e25;
+    font-size: 19px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    box-shadow: 0 8px 25px rgba(16, 185, 129, .18);
+}
+
+.login-card > .logo {
+    margin: 0 auto 22px;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin-top: 0;
+}
+
+.login-card h1 {
+    margin-bottom: 8px;
+    text-align: center;
+    font-size: 30px;
+    letter-spacing: -1px;
+}
+
+.subtitle {
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.login-card > .subtitle {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    margin-top: 8px;
+    color: #d6e0ed;
+    font-size: 13px;
+    font-weight: 650;
+}
+
+input,
+select {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 14px;
+    color: var(--text);
+    background: #0b1524;
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    transition: border-color .2s, box-shadow .2s;
+}
+
+input::placeholder {
+    color: #64748b;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, .1);
+    outline: none;
+}
+
+form button[type="submit"] {
+    margin-top: 14px;
+    color: #03291f;
+    background: var(--primary);
+}
+
+form button[type="submit"]:hover:not(:disabled) {
+    background: #34d399;
+    transform: translateY(-1px);
+}
+
+#message,
+#accountMessage {
+    min-height: 20px;
+    margin: 4px 0 0;
+    font-size: 13px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.login-card footer {
+    margin-top: 26px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    text-align: center;
+    font-size: 12px;
+}
+
+/* Dashboard */
+
+.accounts-view {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.dashboard-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.dashboard-header > div {
+    min-width: 0;
+}
+
+.dashboard-header .logo {
+    margin-bottom: 20px;
+}
+
+.dashboard-header h1 {
+    margin-bottom: 8px;
+    font-size: clamp(27px, 4vw, 36px);
+    letter-spacing: -1.2px;
+}
+
+.dashboard-header .subtitle {
+    margin-bottom: 0;
+}
+
+.secondary-button {
+    flex-shrink: 0;
+    color: #e2e8f0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+}
+
+.secondary-button:hover {
+    background: var(--surface-hover);
+}
+
+.summary-card {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 24px;
+    padding: 30px;
+    background: linear-gradient(120deg, #104b3b, #12352f 65%, #142a3a);
+    border: 1px solid #23664f;
+    border-radius: 22px;
+}
+
+.summary-card::after {
+    content: "R$";
+    position: absolute;
+    right: 24px;
+    bottom: -35px;
+    color: rgba(255, 255, 255, .06);
+    font-size: 140px;
+    font-weight: 900;
+    pointer-events: none;
+}
+
+.summary-card span,
+.summary-card small,
+.summary-card strong {
+    position: relative;
+    z-index: 1;
+}
+
+.summary-card span {
+    color: #c2e9d9;
+    font-size: 13px;
+    font-weight: 650;
+}
+
+.summary-card strong {
+    font-size: clamp(30px, 5vw, 42px);
+    letter-spacing: -1.5px;
+    overflow-wrap: anywhere;
+}
+
+.summary-card small {
+    color: #a8d4c2;
+    font-size: 12px;
+}
+
+.panel {
+    margin-top: 22px;
+    padding: 26px;
+    background: rgba(17, 28, 45, .92);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.panel h2 {
+    margin-bottom: 22px;
+    font-size: 19px;
+    letter-spacing: -.3px;
+}
+
+.accounts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.account-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px;
+    background: #0c1727;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    transition: border-color .2s, background .2s;
+}
+
+.account-card:hover {
+    background: var(--surface-hover);
+    border-color: #3b526c;
+}
+
+.account-info {
+    min-width: 0;
+}
+
+.account-info h3 {
+    margin-bottom: 6px;
+    font-size: 15px;
+    overflow-wrap: anywhere;
+}
+
+.account-info p {
+    margin-bottom: 0;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.account-balance {
+    flex-shrink: 0;
+    color: #6ee7b7;
+    font-size: 16px;
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+.empty-state {
+    margin: 0;
+    padding: 24px 16px;
+    color: var(--muted);
+    text-align: center;
+    line-height: 1.6;
+    background: #0c1727;
+    border: 1px dashed #30425a;
+    border-radius: 12px;
+    overflow-wrap: anywhere;
+}
+
+@media (min-width: 800px) {
+    .accounts-view {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        column-gap: 22px;
+        align-items: start;
+    }
+
+    .dashboard-header,
+    .summary-card {
+        grid-column: 1 / -1;
+    }
+
+    .panel {
+        min-width: 0;
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 560px) {
+    body {
+        padding: 20px 14px;
+    }
+
+    .login-card {
+        margin: 4vh auto;
+        padding: 26px 20px;
+    }
+
+    .dashboard-header {
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .dashboard-header h1 {
+        font-size: 26px;
+    }
+
+    .dashboard-header .logo {
+        width: 44px;
+        height: 44px;
+        margin-bottom: 16px;
+        border-radius: 13px;
+    }
+
+    .secondary-button {
+        min-height: 40px;
+        padding: 9px 13px;
+    }
+
+    .summary-card {
+        padding: 24px 20px;
+    }
+
+    .panel {
+        padding: 20px 16px;
+    }
+
+    .account-card {
+        align-items: flex-start;
+        padding: 15px 12px;
+    }
+
+    .account-balance {
+        max-width: 45%;
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Bolso | Controle Financeiro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="login-container">
+
+    <section class="login-card" id="loginView">
+        <div class="logo">MB</div>
+        <h1>Meu Bolso</h1>
+        <p class="subtitle">Seu dinheiro, sob seu controle.</p>
+
+        <form id="loginForm">
+            <label for="email">E-mail</label>
+            <input type="email" id="email"
+                   placeholder="voce@email.com"
+                   autocomplete="username" required>
+
+            <label for="password">Senha</label>
+            <input type="password" id="password"
+                   placeholder="Digite sua senha"
+                   autocomplete="current-password" required>
+
+            <button type="submit" id="loginButton">Entrar</button>
+            <p id="message" role="status"></p>
+        </form>
+
+        <footer>Controle financeiro pessoal</footer>
+    </section>
+
+    <section id="accountsView" class="accounts-view" hidden>
+        <header class="dashboard-header">
+            <div>
+                <div class="logo">MB</div>
+                <h1>Minhas contas</h1>
+                <p class="subtitle">Organize seu dinheiro em um só lugar.</p>
+            </div>
+            <button type="button" id="logoutButton" class="secondary-button">
+                Sair
+            </button>
+        </header>
+
+        <div class="summary-card">
+            <span>Saldo inicial total</span>
+            <strong id="totalBalance">R$ 0,00</strong>
+            <small>Soma dos saldos iniciais das suas contas</small>
+        </div>
+
+        <section class="panel">
+            <h2>Adicionar conta</h2>
+
+            <form id="accountForm">
+                <label for="accountName">Nome da conta</label>
+                <input type="text" id="accountName"
+                       placeholder="Ex.: Neon" maxlength="100" required>
+
+                <label for="accountType">Tipo de conta</label>
+                <select id="accountType" required>
+                    <option value="CONTA_CORRENTE">Conta corrente</option>
+                    <option value="CONTA_POUPANCA">Poupança</option>
+                    <option value="CARTEIRA_DINHEIRO">Dinheiro em espécie</option>
+                    <option value="CONTA_PAGAMENTO">Conta de pagamento</option>
+                </select>
+
+                <label for="initialBalance">Saldo inicial (R$)</label>
+                <input type="number" id="initialBalance"
+                       min="0" step="0.01" value="0.00" required>
+
+                <button type="submit" id="saveAccountButton">
+                    Salvar conta
+                </button>
+                <p id="accountMessage" role="status"></p>
+            </form>
+        </section>
+
+        <section class="panel">
+            <h2>Contas cadastradas</h2>
+            <div id="accountsList" class="accounts-list">
+                <p class="empty-state">Carregando contas...</p>
+            </div>
+        </section>
+    </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

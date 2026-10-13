@@ -1,6 +1,7 @@
+
 CREATE TABLE transacoes
 (
-    id             UUID PRIMARY KEY        DEFAULT gen_random_uuid(),
+    id             UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     conta_id       UUID           NOT NULL,
     tipo           VARCHAR(20)    NOT NULL,
     valor          NUMERIC(12, 2) NOT NULL,
@@ -8,24 +9,20 @@ CREATE TABLE transacoes
     categoria      VARCHAR(100),
     data_transacao TIMESTAMPTZ    NOT NULL DEFAULT CURRENT_TIMESTAMP,
     efetuada       BOOLEAN        NOT NULL DEFAULT TRUE,
-    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-
-    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    created_at     TIMESTAMP      NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at     TIMESTAMP      NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     -- Relacionamento com conta
     CONSTRAINT fk_transacoes_conta
         FOREIGN KEY (conta_id)
-            REFERENCES contas (id)
-            ON DELETE CASCADE,
+        REFERENCES contas (id)
+        ON DELETE CASCADE,
 
     -- Validação dos tipos de transação
     CONSTRAINT chk_transacoes_tipo
-        CHECK (tipo IN (
-                        'ENTRADA',
-                        'SAIDA',
-            )),
+        CHECK (tipo IN ('ENTRADA', 'SAIDA')),
 
-    -- Valor nunca pode ser negativo — o tipo define o sentido
+    -- Valor sempre positivo
     CONSTRAINT chk_transacoes_valor_positivo
         CHECK (valor > 0)
 );

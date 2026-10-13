@@ -52,7 +52,7 @@ public class ContaService {
 
     @Transactional(readOnly = true)
     public ContaResponse buscarConta(UUID contaId, String email) {
-        User user = user = this.user(email);
+        User user =  this.user(email);
         Conta conta = contaRepository.findByIdAndUserId(contaId, user.getId())
                 .orElseThrow(() ->
                         new IllegalArgumentException("Conta não encontrada."));
